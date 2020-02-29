@@ -13,7 +13,16 @@ URL = 'https://paws.tcnj.edu'
 
 credentials = {
     'username' : 'warcolz1',
-    'password' : 'Sugaree1!'
+    'password' : 'Sugaree1!',
+    "subject": 'CSC',
+    "class_num": '12345',
+    "year": '',
+    "semester": '',
+    "carrier": '',
+    "phone_num": '',
+    "email": '',
+    "notif": '',
+    "time": ''
 }
 
 def login(credentials):
@@ -26,7 +35,7 @@ def login(credentials):
     # chrome_options.add_argument("--disable-gpu")
     # chrome_options.add_argument("--headless")
 
-    driver = webdriver.Chrome()#options=chrome_options)
+    driver = webdriver.Chrome() #options=chrome_options
     driver.get(URL)
 
     while True:
@@ -70,16 +79,31 @@ def searchCourse(credentials, driver):
     driver.switch_to.frame(driver.find_element_by_name('TargetContent'))
     search = driver.find_element_by_link_text('Search') #DERIVED_SSS_SCL_SSS_GO_4$83$
     search.click()
-    time.sleep(0.2)
+    time.sleep(3)
 
     #Uncheck "Show Open Classes Only"
     closed = driver.find_element_by_name("SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3")
     closed.click()
-    time.sleep(.2)
+    time.sleep(0.2)
 
+    #Select the proper course subject
+    courseSelect = driver.find_element_by_xpath("//select[@id='SSR_CLSRCH_WRK_SUBJECT_SRCH$0']")
+    courseSelect.click()
+    time.sleep(0.2)
+    for option in courseSelect.find_elements_by_tag_name('option'):
+        if option.get_attribute('value') == credentials['subject']:
+            print(option.get_attribute('value'))
+            option.click()
+            break
+    time.sleep(0.2)
 
+    #Enter course number
+    courseNum = driver.find_element_by_xpath("//select[@id='SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3']")
+    courseNum.click()
+    courseNum.send_keys(credentials['class_num'])
+    time.sleep(0.2)
 
 driver = login(credentials)
 searchCourse(credentials, driver)
-time.sleep(2)
+time.sleep(10)
 driver.close()
