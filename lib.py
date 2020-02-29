@@ -15,7 +15,7 @@ credentials = {
     'username' : 'warcolz1',
     'password' : 'Sugaree1!',
     "subject": 'CSC',
-    "class_num": '12345',
+    "class_num": '41817',
     "year": '',
     "semester": '',
     "carrier": '',
@@ -101,7 +101,9 @@ def searchCourse(credentials, driver):
     #Enter course number
     courseNum = driver.find_element_by_name('SSR_CLSRCH_WRK_CLASS_NBR$7')
     courseNum.send_keys(credentials['class_num'])
-    time.sleep(0.2)
+    time.sleep(0.5)
+    window.send_keys(u'\ue007')
+    time.sleep(2)
 
 driver = login(credentials)
 searchCourse(credentials, driver)
