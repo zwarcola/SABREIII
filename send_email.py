@@ -1,9 +1,6 @@
 import smtplib, ssl
 
 port = 465  # For SSL
-# receiver_email = input("Enter your email: ")
-# receiver_number = input("Enter your phone number: ")
-# receiver_carrier = input("Enter your phone carrier: ")
 
 # Create a secure SSL context
 context = ssl.create_default_context()
