@@ -1,17 +1,24 @@
-from activesoup import driver
+import requests
+from bs4 import BeautifulSoup as bs
 
-def getPage():
-    d = driver.Driver()
-    login_page = d.get('https://paws.tcnj.edu/psp/paws/?cmd=login')
-    login_form = login_page.form
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.expected_conditions import presence_of_element_located
 
-    print(login_page)
-    print(login_form)
+def login(credentials):
+    user = credentials['username']
+    pwd = credentials['password']
 
-    member_portal = login_form.submit({'username': 'username',
-                    'password': 'password'})
+    driver = webdriver.Chrome(executable_path = '/chromedriver.exe')
+    driver.get(URL)
 
-    if member_portal.response.status_code not in range(200, 300):
-        raise RuntimeError("Couldn't log in")
+    with webdriver.Chrome() as driver:
+        wait = WebDriverWait(driver, 10)
+        driver.get("https://google.com/ncr")
+        driver.find_element_by_name("q").send_keys("cheese" + Keys.RETURN)
+        first_result = wait.until(presence_of_element_located((By.CSS_SELECTOR, "h3>div")))
+        print(first_result.get_attribute("textContent"))
 
-getPage()
+login()
