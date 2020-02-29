@@ -101,8 +101,12 @@ def searchCourse(credentials, driver):
     #Enter course number
     courseNum = driver.find_element_by_name('SSR_CLSRCH_WRK_CLASS_NBR$7')
     courseNum.send_keys(credentials['class_num'])
-    time.sleep(0.5)
-    window.send_keys(u'\ue007')
+    courseNum.send_keys(Keys.RETURN)
+    time.sleep(2)
+
+    #open the class info
+    classLink = driver.find_element_by_link_text(credentials['class_num'])
+    classLink.click()
     time.sleep(2)
 
 driver = login(credentials)
