@@ -15,7 +15,7 @@ credentials = {
     'username' : 'warcolz1',
     'password' : 'Sugaree1!',
     "subject": 'CSC',
-    "class_num": '41817',
+    "class_num": '41813',
     "year": '',
     "semester": '',
     "carrier": '',
@@ -108,6 +108,10 @@ def searchCourse(credentials, driver):
     classLink = driver.find_element_by_link_text(credentials['class_num'])
     classLink.click()
     time.sleep(2)
+
+    availibleSeats = driver.find_element_by_xpath('//*[@id="SSR_CLS_DTL_WRK_AVAILABLE_SEATS"]')
+    print(availibleSeats)
+    print(availibleSeats.get_attribute('value'))
 
 driver = login(credentials)
 searchCourse(credentials, driver)
