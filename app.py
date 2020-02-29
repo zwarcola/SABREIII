@@ -50,7 +50,12 @@ while True:
     elif (credentials["carrier"] == "T-Mobile"):
         receiver = credentials["phone"] + "@tmomail.net"
 
-    send_text(receiver, message)
-    send_email(credentials["email"], message)
+    if credentials["notif"] == "Email":
+        send_email(credentials["email"], message)
+    elif credentials["notif"] == "Text":
+        send_text(receiver, message)
+    else:
+        send_email(credentials["email"], message)
+        send_text(receiver, message)
 
 window.close()
