@@ -93,13 +93,13 @@ def searchCourse(credentials, driver):
     for option in courseSelect.find_elements_by_tag_name('option'):
         if option.get_attribute('value') == credentials['subject']:
             print(option.get_attribute('value'))
+            time.sleep(0.1)
             option.click()
             break
     time.sleep(0.2)
 
     #Enter course number
-    courseNum = driver.find_element_by_xpath("//select[@id='SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3']")
-    courseNum.click()
+    courseNum = driver.find_element_by_name('SSR_CLSRCH_WRK_CLASS_NBR$7')
     courseNum.send_keys(credentials['class_num'])
     time.sleep(0.2)
 
