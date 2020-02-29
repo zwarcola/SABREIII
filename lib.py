@@ -72,10 +72,11 @@ def searchCourse(credentials, driver):
     search.click()
     time.sleep(0.2)
 
-    #Enter class credentials
-    if(credentials['class_num']){
-    
-    }
+    #Uncheck "Show Open Classes Only"
+    closed = driver.find_element_by_name("SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3")
+    closed.click()
+    time.sleep(.2)
+
 
 
 driver = login(credentials)
