@@ -3,26 +3,27 @@ from send_email import send_text, send_email
 
 sg.theme('BlueMono')	# Add a touch of color
 # All the stuff inside your window.
-layout = [  [sg.Text('SabreIII')],
-            [sg.Text('Enter TCNJ Username:'), sg.InputText()],
-            [sg.Text('Enter Password:'), sg.InputText()],
-            [sg.Text('Course Subject:'), sg.InputText()],
-            [sg.Text('Course Number:'), sg.InputText()],
-            [sg.Text('Semester Year:'), sg.InputText()],
-            [sg.Text('Semester Season:'), sg.Combo(['Fall', 'Winter', 'Spring', 'Summer'])],
-            [sg.Text('Phone Provider:'), sg.Combo(['AT&T', 'Verizon', 'Sprint', 'T-mobile'])],
-            [sg.Text('Phone Number:'), sg.InputText()],
-            [sg.Text('Receiving Email:'), sg.InputText()],
-            [sg.Text('Notifications:'), sg.Combo(['Both', 'Email', 'Text'])],
+layout = [  [sg.Text('User Input')],
+            [sg.Text('TCNJ Username:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Password:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Course Subject:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Course Number:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Semester Year:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Semester Season:', size=(16, 1)), sg.Combo(['Fall', 'Winter', 'Spring', 'Summer'])],
+            [sg.Text('Phone Provider:', size=(16, 1)), sg.Combo(['AT&T', 'Verizon', 'Sprint', 'T-mobile'])],
+            [sg.Text('Phone Number:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Receiving Email:', size=(16, 1)), sg.InputText()],
+            [sg.Text('Notifications:', size=(16, 1)), sg.Combo(['Both', 'Email', 'Text'])],
+            [sg.Text('Recurrence:', size=(16, 1)), sg.InputText(), sg.Text('Minutes')],
             [sg.Button('Submit'), sg.Button('Cancel')] ]
 
 message = """\
 Subject: Your class is open!
 
-Your Welcome."""
+You're Welcome."""
 
 # Create the Window
-window = sg.Window('SabreIII GUI', layout)
+window = sg.Window('SABREIII', layout)
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
     event, values = window.read()
@@ -32,23 +33,24 @@ while True:
         "username": values[0],
         "password": values[1],
         "subject": values[2],
-        "number": values[3],
+        "class_num": values[3],
         "year": values[4],
         "semester": values[5],
         "carrier": values[6],
-        "phone": values[7],
+        "phone_num": values[7],
         "email": values[8],
-        "notif":values[9]
+        "notif":values[9],
+        "time":values[10]
     }
     print(credentials)
     if (credentials["carrier"] == "AT&T"):
-        receiver = credentials["phone"] + "@txt.att.net"
+        receiver = credentials["phone_num"] + "@txt.att.net"
     elif (credentials["carrier"] == "Verizon"):
-        receiver = credentials["phone"] + "@vtext.com"
+        receiver = credentials["phone_num"] + "@vtext.com"
     elif (credentials["carrier"] == "Sprint"):
-        receiver = credentials["phone"] + "@messaging.sprintpcs.com"
+        receiver = credentials["phone_num"] + "@messaging.sprintpcs.com"
     elif (credentials["carrier"] == "T-Mobile"):
-        receiver = credentials["phone"] + "@tmomail.net"
+        receiver = credentials["phone_num"] + "@tmomail.net"
 
     if credentials["notif"] == "Email":
         send_email(credentials["email"], message)
