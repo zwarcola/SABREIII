@@ -126,10 +126,17 @@ def searchCourse(credentials, driver):
         availibleSeats = driver.find_element_by_xpath('//*[@id="win0divSSR_CLS_DTL_WRK_AVAILABLE_SEATS"]')
         availibleSeats = availibleSeats.find_element_by_class_name('PSEDITBOX_DISPONLY').get_attribute('innerHTML')
 
+        #get class title
+        classTitle = driver.find_element_by_xpath('//*[@id="DERIVED_CLSRCH_DESCR200"]')
+        classTitle = driver.find_element_by_class_name('PALEVEL0SECONDARY').get_attribute('innerHTML')
+
+        classTitle = classTitle.replace("&nbsp;", "")
+
+
     except:
         print("ERROR WHILE FINDING COURSE")
         return -1
 
     print("Done!")
     #return total number
-    return availibleSeats
+    return [availibleSeats, classTitle]

@@ -14,9 +14,10 @@ if __name__ == '__main__':
 
         #send crendentials over to bot and run
         driver = login(credentials)
-        availibleSeats = searchCourse(credentials, driver)
-
-        #print("Availible seats: " + availibleSeats)
+        info = searchCourse(credentials, driver)
+        availibleSeats = str(info[0])
+        classTitle = info[1]
+        #print("Availible seats: " + str(availibleSeats))
 
         time.sleep(1)
         driver.close()
@@ -24,7 +25,7 @@ if __name__ == '__main__':
         if (int(availibleSeats) > 0):
 
             message = MIMEMultipart("alternative")
-            message["Subject"] = "Your class " + credentials["subject"] + " " + credentials["class_num"] + " is open!"
+            message["Subject"] = "Your class " + classTitle + " is open!"
 
             text = """There are """ + availibleSeats + """ seats(s) available! Hurry and register before somebody takes your spot. \n\nThank you for using SABREIII"""
 
