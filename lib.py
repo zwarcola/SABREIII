@@ -15,7 +15,7 @@ credentials = {
     'username' : 'warcolz1',
     'password' : 'Sugaree1!',
     "subject": 'CSC',
-    "class_num": '41813',
+    "class_num": '41817',
     "year": '',
     "semester": '',
     "carrier": '',
@@ -92,7 +92,6 @@ def searchCourse(credentials, driver):
     time.sleep(0.2)
     for option in courseSelect.find_elements_by_tag_name('option'):
         if option.get_attribute('value') == credentials['subject']:
-            print(option.get_attribute('value'))
             time.sleep(0.1)
             option.click()
             break
@@ -109,11 +108,16 @@ def searchCourse(credentials, driver):
     classLink.click()
     time.sleep(2)
 
-    availibleSeats = driver.find_element_by_xpath('//*[@id="SSR_CLS_DTL_WRK_AVAILABLE_SEATS"]')
-    print(availibleSeats)
-    print(availibleSeats.get_attribute('value'))
+    #get amount of availible seats
+    availibleSeats = driver.find_element_by_xpath('//*[@id="win0divSSR_CLS_DTL_WRK_AVAILABLE_SEATS"]')
+    availibleSeats = availibleSeats.find_element_by_class_name('PSEDITBOX_DISPONLY').get_attribute('innerHTML')
+
+    #return total number
+    return availibleSeats
 
 driver = login(credentials)
-searchCourse(credentials, driver)
+availibleSeats = searchCourse(credentials, driver)
+
+print(availibleSeats)
 time.sleep(10)
 driver.close()
