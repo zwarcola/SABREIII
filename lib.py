@@ -10,31 +10,17 @@ from selenium.webdriver.chrome.options import Options
 LOGIN_REDIRECT_URL = 'https://paws.tcnj.edu/psp/paws/?cmd=login&languageCd=ENG&'
 URL = 'https://paws.tcnj.edu'
 
-credentials = {
-    'username' : 'warcolz1',
-    'password' : 'Sugaree1!',
-    "subject": 'CSC',
-    "class_num": '41817',
-    "year": '2020',
-    "semester": 'Spring',
-    "carrier": '',
-    "phone_num": '',
-    "email": '',
-    "notif": '',
-    "time": ''
-}
-
 def login(credentials):
     #begin login process
     user = credentials['username']
     pwd = credentials['password']
 
-    # chrome_options = Options()
-    # chrome_options.add_argument("--disable-extensions")
-    # chrome_options.add_argument("--disable-gpu")
-    # chrome_options.add_argument("--headless")
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--headless")
 
-    driver = webdriver.Chrome() #options=chrome_options
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get(URL)
 
     #await redirect from chrome driver
@@ -72,6 +58,7 @@ def login(credentials):
 
 def searchCourse(credentials, driver):
     try:
+        print("Searching for course...")
         #Navigate to Student Center
         link = driver.find_element_by_link_text('Student Center')
         link.click()
@@ -133,6 +120,7 @@ def searchCourse(credentials, driver):
         classLink.click()
         time.sleep(2)
 
+        print("Getting total seats...")
         #get amount of availible seats
         availibleSeats = driver.find_element_by_xpath('//*[@id="win0divSSR_CLS_DTL_WRK_AVAILABLE_SEATS"]')
         availibleSeats = availibleSeats.find_element_by_class_name('PSEDITBOX_DISPONLY').get_attribute('innerHTML')
@@ -141,12 +129,6 @@ def searchCourse(credentials, driver):
         print("ERROR WHILE FINDING COURSE")
         return -1
 
+    print("Done!")
     #return total number
     return availibleSeats
-
-driver = login(credentials)
-availibleSeats = searchCourse(credentials, driver)
-
-print(availibleSeats)
-time.sleep(10)
-driver.close()
