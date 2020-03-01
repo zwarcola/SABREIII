@@ -15,6 +15,7 @@ def login(credentials):
     user = credentials['username']
     pwd = credentials['password']
 
+    #hide chrome browser
     chrome_options = Options()
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--disable-gpu")
