@@ -13,7 +13,7 @@ def show_gui():
                 [sg.Text('Course Number:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Semester Year:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Semester Season:', size=(16, 1)), sg.Combo(['Fall', 'Winter', 'Spring', 'Summer'])],
-                [sg.Text('Phone Provider:', size=(16, 1)), sg.Combo(['AT&T', 'Verizon', 'Sprint', 'T-mobile'])],
+                [sg.Text('Phone Provider:', size=(16, 1)), sg.Combo(['AT&T', 'Verizon', 'Sprint', 'T-Mobile'])],
                 [sg.Text('Phone Number:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Receiving Email:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Notifications:', size=(16, 1)), sg.Combo(['Both', 'Email', 'Text'])],
