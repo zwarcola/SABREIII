@@ -9,7 +9,7 @@ def show_gui():
     layout = [  [sg.Text('User Input')],
                 [sg.Text('TCNJ Username:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Password:', size=(16, 1)), sg.InputText()],
-                [sg.Text('Course Subject:', size=(16, 1)), sg.InputText()],
+                [sg.Text('Course Subject:', size=(16, 1)), sg.Combo(['ACC', 'AAS', 'ASL', 'ANT', 'ARA', 'AAE', 'AAH', 'AAV', 'BIO', 'BME', 'BUS', 'CCS', 'CHE', 'CHI', 'CIV', 'CLS', 'COM', 'CMP', 'CSC', 'COUN', 'CWR', 'CRI', 'CURR', 'DFHH', 'DHH', 'ECE', 'ECED', 'ECO', 'EDAD', 'SED', 'EDUC', 'EDFN', 'EFN', 'EDIN', 'EPSY', 'SUPV', 'ELC', 'ELE', 'ELEM', 'ENG', 'ENGL', 'EED', 'LNG', 'ESLM', 'ESE', 'ENV', 'FIN', 'FRE', 'FSP', 'GER', 'GRE', 'HES', 'HIS', 'HED', 'HGS', 'HON', 'HSS', 'ISTG', 'IST', 'SCI', 'IMM', 'IDS', 'INB', 'INTL', 'INT', 'ITL', 'JPN', 'JPW', 'LAC', 'LAT', 'LIT', 'MGTG', 'MGT', 'MKT', 'MST', 'MAT', 'MATH', 'MTT', 'MEC', 'MSCI', 'MUS', 'NUR', 'NURS', 'PBHR', 'PBHG', 'PHL', 'PHY', 'POL', 'VCPD', 'PSY', 'PBH', 'RDLG', 'RAL', 'REGS', 'REL', 'RUS', 'SAFT', 'AMM', 'SCED', 'SOM', 'SOC', 'SPA', 'SPE','SPED','SLP', 'STA', 'TST', 'TED', 'ETE', 'VPA', 'WGS', 'WGST', 'WLC', 'WRI', 'STEM'])],
                 [sg.Text('Course Number:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Semester Year:', size=(16, 1)), sg.InputText()],
                 [sg.Text('Semester Season:', size=(16, 1)), sg.Combo(['Fall', 'Winter', 'Spring', 'Summer'])],
@@ -19,8 +19,6 @@ def show_gui():
                 [sg.Text('Notifications:', size=(16, 1)), sg.Combo(['Both', 'Email', 'Text'])],
                 [sg.Text('Recurrence:', size=(16, 1)), sg.InputText(), sg.Text('Minutes')],
                 [sg.Button('Submit'), sg.Button('Cancel')] ]
-
-
 
     # Create the Window
     window = sg.Window('SABREIII', layout)
