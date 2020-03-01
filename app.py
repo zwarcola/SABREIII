@@ -42,5 +42,6 @@ def show_gui():
             "notif":values[9],
             "time":values[10]
         }
-    window.close()
-    return credentials
+        print(credentials)
+        #window.close()
+        return credentials

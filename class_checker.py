@@ -1,5 +1,6 @@
 from lib import login, searchCourse
 from app import show_gui
+from send_email import send_text, send_email
 
 
 if __name__ == '__main__':
@@ -8,22 +9,25 @@ if __name__ == '__main__':
 
     # driver = login(credentials)
     # availibleSeats = searchCourse(credentials, driver)
-
-    if (availibleSeats > 0):
+    availibleSeats = "1"
+    if (int(availibleSeats) > 0):
 
         message = """\
         Subject: Your class is open!
 
-         There are """ + availibleSeats + """seats availble. You're Welcome."""
+
+        There are """ + availibleSeats + """ seat(s) available. Go Register Fast!"""
 
         if (credentials["carrier"] == "AT&T"):
             receiver = credentials["phone_num"] + "@txt.att.net"
         elif (credentials["carrier"] == "Verizon"):
-            receiver = credentials["phone_num"] + "@vtext.com"
+            receiver = credentials["phone_num"] + "@vzwpix.com"
         elif (credentials["carrier"] == "Sprint"):
             receiver = credentials["phone_num"] + "@messaging.sprintpcs.com"
         elif (credentials["carrier"] == "T-Mobile"):
             receiver = credentials["phone_num"] + "@tmomail.net"
+
+        print(receiver)
 
         if credentials["notif"] == "Email":
             send_email(credentials["email"], message)
