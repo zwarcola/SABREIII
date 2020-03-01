@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 send_text(receiver, message)
 
             #if we find the class is open, end the program??
-            return 0
+            exit()
 
         else:
             print("No class found, waiting a little while...")
