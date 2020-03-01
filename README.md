@@ -8,7 +8,7 @@ Super Automated Browser Requesting Enrollment or SABRE III is an application des
 Download the source code from https://github.com/zwarcola/SABREIII and run the executable within. When opened, the user will be prompted to enter their PAWS information as well as the course number. Note that this course number is the 5-digit code associated with the class name and section **NOT** the 3-digit code associated with the course type. A screenshot of where to find this code is shown below. Enter the information and click *Submit* in order to begin the program. From here, the program will check every 30 minutes if a course is availible. It is recommended to run the program on a device than can be running 24/7 to the application can always be searching.
 
 <div align="center">
-    <img src="/Course_Number_Locations.jpg" width="3191px" height="1800px"></img> 
+    <img src="/Course_Number_Locations.jpg" width="3191px"></img> 
 </div>
 
 ## Built With
