@@ -27,7 +27,7 @@ if __name__ == '__main__':
             message = MIMEMultipart("alternative")
             message["Subject"] = "Your class " + classTitle + " is open!"
 
-            text = """There are """ + availibleSeats + """ seats(s) available! Hurry and register before somebody takes your spot. \n\nThank you for using SABREIII"""
+            text = """There are """ + availibleSeats + """ seats(s) available! Hurry and register before somebody takes your spot. \n\nThank you for using SABRE III!"""
 
             message.attach(MIMEText(text, "plain"))
 
