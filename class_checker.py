@@ -15,7 +15,7 @@ if __name__ == '__main__':
         #send crendentials over to bot and run
         driver = login(credentials)
         info = searchCourse(credentials, driver)
-        availibleSeats = str(info[0])
+        availibleSeats = info[0]
         classTitle = info[1]
         #print("Availible seats: " + str(availibleSeats))
 
