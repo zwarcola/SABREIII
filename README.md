@@ -14,7 +14,7 @@ Download the source code from https://github.com/zwarcola/SABREIII, be sure to h
 ```
 python class_checker.py
 ```
-When opened, you will be prompted to enter your PAWS information as well as the course number. Note that this course number is the 5-digit code associated with the class name and section **NOT** the 3-digit code associated with the course type. A screenshot of where to find this code is shown below. Enter the information and click *Submit* in order to begin the program. From here, the program will check every 30 minutes if a course is availible. It is recommended to run the program on a device than can be running 24/7 to the application can always be searching.
+When opened, you will be prompted to enter your PAWS information as well as the course number. Note that this course number is the 5-digit code associated with the class name and section **NOT** the 3-digit code associated with the course type. A screenshot of where to find this code is shown below. Enter the information and click *Submit* in order to begin the program. From here, the program will check every 30 minutes if a course is availible. It is recommended to run the program on a device than can be running 24/7 so the application can always be searching.
 
 <div align="center">
     <img src="Screenshots/Course_Number_Locations.jpg" width="3191px"></img>
