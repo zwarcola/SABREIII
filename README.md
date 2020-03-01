@@ -27,6 +27,8 @@ When opened, you will be prompted to enter your PAWS information as well as the 
 ## Built With
 
 * Python3 - Source Code and GUI
+* Selenium
+* PySimpleGUI
 
 
 ## Contributors
