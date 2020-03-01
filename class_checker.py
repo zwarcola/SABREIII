@@ -3,7 +3,6 @@ from app import show_gui
 from send_email import send_text, send_email
 import time
 
-
 if __name__ == '__main__':
 
     #get credentials from GUI
@@ -16,7 +15,7 @@ if __name__ == '__main__':
         availibleSeats = searchCourse(credentials, driver)
 
         print("Availible seats: " + availibleSeats)
-        
+
         time.sleep(1)
         driver.close()
 
@@ -46,6 +45,9 @@ if __name__ == '__main__':
             else:
                 send_email(credentials["email"], message)
                 send_text(receiver, message)
+
+            #if we find the class is open, end the program??
+            time.sleep(30)
 
         else:
             time.sleep(30)
