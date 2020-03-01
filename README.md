@@ -6,7 +6,7 @@ Super Automated Browser Requesting Enrollment or SABRE III is an application des
 ## Using on Mac
 
 Prerequisites: brew and python3
-Follow this link:  https://docs.python-guide.org/starting/install3/osx/ to install brew and python3. Once they are both installed. Verify that python3 is installed by running "$ python3 --version". The command should return your python version. Next run mac_istall.sh by doing "$ ./mac_install.sh requirements.txt". To run the class checker, do "$ python3 class_checker.py".
+Follow this link:  https://docs.python-guide.org/starting/install3/osx/ to install brew and python3. Once they are both installed. Verify that python3 is installed by running "$ python3 --version". The command should return your python version. Next run mac_install.sh by doing "$ ./mac_install.sh requirements.txt". To run the class checker, do "$ python3 class_checker.py".
 
 ## Using on Windows
 
@@ -23,7 +23,7 @@ Download the source code from https://github.com/zwarcola/SABREIII and run the e
 
 ## Contributors
 
-* **Jake Bezold** - *Frontend work*
+* **Jake Bezold** - *Mastermind*
 * **Casey Futterman** - *Graphical User Interface*
 * **Adam Varone** - *User Notification System*
 * **Zachary Warcola** - *Backend Web Navigation*
