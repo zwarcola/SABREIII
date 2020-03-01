@@ -24,7 +24,7 @@ if __name__ == '__main__':
         if (int(availibleSeats) > 0):
 
             message = MIMEMultipart("alternative")
-            message["Subject"] = "Your class is open!"
+            message["Subject"] = "Your class " + credentials["subject"] + " " + credentials["class_num"] + " is open!"
 
             text = """\
             There are """ + availibleSeats + """ seats(s) available!"""
