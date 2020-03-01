@@ -2,6 +2,8 @@ from lib import login, searchCourse
 from app import show_gui
 from send_email import send_text, send_email
 import time
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 if __name__ == '__main__':
 
@@ -21,11 +23,14 @@ if __name__ == '__main__':
 
         if (int(availibleSeats) > 0):
 
-            message = """\
-            Subject: Your class is open!
+            message = MIMEMultipart("alternative")
+            message["Subject"] = "Your class is open!"
 
+            text = """\
+            There are seats open!"""
 
-            There are """ + availibleSeats + """ seat(s) available. Go Register Fast!"""
+            message.attach(MIMEText(text, "plain"))
+            #There are """ + availibleSeats + """ seat(s) available. Go Register Fast!"""
 
             if (credentials["carrier"] == "AT&T"):
                 receiver = credentials["phone_num"] + "@txt.att.net"
