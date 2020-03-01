@@ -1,6 +1,10 @@
 # SABRE III Peoplesoft App
 
-Super Automated Browser Requesting Enrollment or SABRE III is an application designed to give students notifications based on if a class they with to enroll in has opened up. It is common for students to miss getting in to a class during enrollment, when they do, SABRE III is here to automatically monitor the status of the availible seats in the class. If a seat is found to be availible, the user is notified via text, email, or both about the opening.
+Super Automated Browser Requesting Enrollment or SABRE III is an application designed to give students notifications based on if a class they with to enroll in has opened up. It is common for students to miss getting in to a class during enrollment, when they do, SABRE III is here to automatically monitor the status of the availible seats in the class. If a seat is found to be availible, the user is notified via text, email, or both about the opening. An example of the program with the user info inserted is displayed below.
+
+<div align="center">
+    <img src="Screenshots/SABRE_III_GUI.jpg" width="1982px"></img>
+</div>
 
 
 ## Using on Mac
