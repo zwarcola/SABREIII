@@ -27,7 +27,7 @@ if __name__ == '__main__':
             message["Subject"] = "Your class is open!"
 
             text = """\
-            There are seats open!"""
+            There are """ + availibleSeats + """ seats(s) available!"""
 
             message.attach(MIMEText(text, "plain"))
             #There are """ + availibleSeats + """ seat(s) available. Go Register Fast!"""
