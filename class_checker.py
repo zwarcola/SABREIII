@@ -16,7 +16,7 @@ if __name__ == '__main__':
         driver = login(credentials)
         availibleSeats = searchCourse(credentials, driver)
 
-        print("Availible seats: " + availibleSeats)
+        #print("Availible seats: " + availibleSeats)
 
         time.sleep(1)
         driver.close()
@@ -26,11 +26,9 @@ if __name__ == '__main__':
             message = MIMEMultipart("alternative")
             message["Subject"] = "Your class " + credentials["subject"] + " " + credentials["class_num"] + " is open!"
 
-            text = """\
-            There are """ + availibleSeats + """ seats(s) available!"""
+            text = """There are """ + availibleSeats + """ seats(s) available! Hurry and register before somebody takes your spot. \n\nThank you for using SABREIII"""
 
             message.attach(MIMEText(text, "plain"))
-            #There are """ + availibleSeats + """ seat(s) available. Go Register Fast!"""
 
             if (credentials["carrier"] == "AT&T"):
                 receiver = credentials["phone_num"] + "@txt.att.net"
