@@ -15,7 +15,7 @@ if __name__ == '__main__':
         #send crendentials over to bot and run
         driver = login(credentials)
         info = searchCourse(credentials, driver)
-        availibleSeats = info[0]
+        availibleSeats = str(info[0])
         classTitle = info[1]
         #print("Availible seats: " + str(availibleSeats))
 
@@ -55,4 +55,4 @@ if __name__ == '__main__':
 
         else:
             print("No class found, waiting a little while...")
-            time.sleep(30) #if the class isnt found sleep for a period of time and check again
+            time.sleep(1800) #if the class isnt found sleep for a period of time and check again
